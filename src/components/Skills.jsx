@@ -10,12 +10,12 @@ const Skills = () => {
     // Simulate API call
     setTimeout(() => {
       setSkills([
-        { id: 1, name: 'React', level: 90, category: 'Frontend' },
-        { id: 2, name: 'JavaScript', level: 95, category: 'Frontend' },
-        { id: 3, name: 'Node.js', level: 80, category: 'Backend' },
-        { id: 4, name: 'Python', level: 75, category: 'Backend' },
-        { id: 5, name: 'MongoDB', level: 70, category: 'Database' },
-        { id: 6, name: 'PostgreSQL', level: 75, category: 'Database' },
+        { id: 1, name: 'Python', level: 90, category: 'Programming' },
+        { id: 2, name: 'R', level: 95, category: 'Data Analysis' },
+        { id: 3, name: 'Molecular Modeling', level: 88, category: 'Structural Biology' },
+        { id: 4, name: 'Protein Production and Purification', level: 85, category: 'Wet Lab' },
+        { id: 5, name: 'HTML & CSS', level: 80, category: 'Web Development' },
+        { id: 6, name: 'In vitro assays', level: 75, category: 'Chemistry' },
       ]);
       setLoading(false);
     }, 500);
@@ -35,7 +35,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <h2>My Skills</h2>
+        <h2>Skills & Technologies</h2>
         <div className="skills-grid">
           {skills.map(skill => (
             <div key={skill.id} className="skill-item">

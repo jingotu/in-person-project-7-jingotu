@@ -1,51 +1,45 @@
 import { useState } from 'react';
-// TODO: Import useProjects from context
+import { useProjects } from '../context/ProjectsContext';
 import ProjectCard from './ProjectCard';
 import LoadingSpinner from './LoadingSpinner';
 import ErrorMessage from './ErrorMessage';
 
 const Projects = () => {
-  // TODO: Get projects, loading, and error from context
-  // const { projects, loading, error } = useProjects();
+  const { projects, loading, error } = useProjects();
 
   const [filter, setFilter] = useState('all');
 
-  // Temporary hardcoded data - remove when using context
-  const projects = [];
-  const loading = false;
-  const error = null;
+  if (loading) {
+    return (
+      <section id="projects" className="projects">
+        <div className="container">
+          <h2>Projects</h2>
+          <LoadingSpinner />
+        </div>
+      </section>
+    );
+  }
 
-  // TODO: Handle loading state
-  // if (loading) {
-  //   return (
-  //     <section id="projects" className="projects">
-  //       <div className="container">
-  //         <h2>Projects</h2>
-  //         <LoadingSpinner />
-  //       </div>
-  //     </section>
-  //   );
-  // }
+  if (error) {
+    return (
+      <section id="projects" className="projects">
+        <div className="container">
+          <h2>Projects</h2>
+          <ErrorMessage
+            message={error}
+            onRetry={() => window.location.reload()}
+          />
+        </div>
+      </section>
+    );
+  }
 
-  // TODO: Handle error state
-  // if (error) {
-  //   return (
-  //     <section id="projects" className="projects">
-  //       <div className="container">
-  //         <h2>Projects</h2>
-  //         <ErrorMessage
-  //           message={error}
-  //           onRetry={() => window.location.reload()}
-  //         />
-  //       </div>
-  //     </section>
-  //   );
-  // }
+  // Derived on every render, not stored in state
+  const filteredProjects = filter === 'all'
+    ? projects
+    : projects.filter(project => project.category === filter);
 
-  // TODO: Filter projects based on selected category
-  const filteredProjects = projects; // Replace with actual filtering logic
-
-  const categories = ['all', 'web', 'mobile', 'data'];
+  const categories = ['all', 'research', 'healthtech', 'simulation'];
 
   return (
     <section id="projects" className="projects">

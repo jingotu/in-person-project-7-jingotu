@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>John Doe</h3>
-            <p>Full Stack Developer</p>
+            <h3>Jingo Tu</h3>
+            <p>Bioengineering MEng Student at UC Berkeley</p>
           </div>
 
           <div className="footer-section">
@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Connect</h4>
             <div className="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/jingotu" target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} John Doe. All rights reserved.</p>
+          <p>&copy; {currentYear} Jingo Tu. All rights reserved.</p>
         </div>
       </div>
     </footer>
