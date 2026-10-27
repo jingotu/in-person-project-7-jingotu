@@ -49,15 +49,20 @@ export const ProjectsProvider = ({ children }) => {
     };
   }, []);
 
-  // TODO: Create addProject function
-  // const addProject = async (projectData) => {
-  //   try {
-  //     // POST request to API
-  //     // Update local state on success
-  //   } catch (error) {
-  //     // Handle error
-  //   }
-  // };
+  // POST a new project, then append the one the server returns
+  const addProject = async (projectData) => {
+    const response = await fetch('http://localhost:3001/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...projectData, id: Date.now() })
+    });
+    if (!response.ok) {
+      throw new Error('Failed to add project');
+    }
+    const newProject = await response.json();
+    setProjects(prev => [...prev, newProject]);
+    return newProject;
+  };
 
   // TODO: Create updateProject function
   // const updateProject = async (id, updates) => {
@@ -71,7 +76,7 @@ export const ProjectsProvider = ({ children }) => {
   //   // Update local state
   // };
 
-  const value = { projects, loading, error };
+  const value = { projects, loading, error, addProject };
 
   return (
     <ProjectsContext.Provider value={value}>

@@ -3,6 +3,7 @@ import { useProjects } from '../context/ProjectsContext';
 import ProjectCard from './ProjectCard';
 import LoadingSpinner from './LoadingSpinner';
 import ErrorMessage from './ErrorMessage';
+import ProjectForm from './ProjectForm';
 
 const Projects = () => {
   const { projects, loading, error } = useProjects();
@@ -45,6 +46,8 @@ const Projects = () => {
     <section id="projects" className="projects">
       <div className="container">
         <h2>My Projects</h2>
+
+        <ProjectForm />
 
         {/* Filter buttons */}
         <div className="project-filters">

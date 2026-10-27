@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #4F46E5;
-  --secondary-color: #06B6D4;
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
   --text-dark: #1F2937;
   --text-light: #6B7280;
   --bg-light: #FFFFFF;
@@ -24,6 +24,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Smooth scroll for navbar links; offset keeps headings below the sticky navbar */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {

@@ -426,7 +426,8 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
@@ -438,7 +439,8 @@
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--primary-color);
 }
@@ -452,6 +454,22 @@
   color: var(--error-color);
   font-size: 0.875rem;
   margin-top: 0.25rem;
+}
+
+/* Add Project form */
+.project-form {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.project-form h3 {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.project-form .error-message {
+  color: var(--error-color);
+  margin-bottom: 1rem;
 }
 
 .success-message {
@@ -558,5 +576,132 @@
 
   .social-links {
     justify-content: center;
+  }
+}
+
+/* ============================================
+   Week 8 tweaks (carried over from IPP 6)
+   ============================================ */
+
+/* Fluid type sizes */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.projects h2,
+.skills h2,
+.contact h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Purple gradient navbar */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-bottom: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1,
+.navbar-menu a {
+  color: white;
+}
+
+.navbar-brand span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-menu a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.menu-toggle span {
+  background-color: white;
+}
+
+/* Purple gradient hero with white text */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.hero-title,
+.hero-title .highlight {
+  color: white;
+}
+
+.hero-subtitle,
+.hero-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-buttons {
+  flex-wrap: wrap;
+}
+
+.hero .btn-primary {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.hero .btn-primary:hover {
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero .btn-secondary {
+  color: white;
+  border-color: white;
+}
+
+.hero .btn-secondary:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+/* Buttons lift on hover */
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Purple outlined filter pills */
+.project-filters {
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Featured project spans two columns on wider screens */
+@media (min-width: 769px) {
+  .project-card:has(.featured-badge) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-top: none;
   }
 }
